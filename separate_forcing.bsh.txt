@@ -1,0 +1,181 @@
+#separate forcing files into 21 parts
+
+#!/bin/bash
+
+
+#******************************************************************
+#bash starts
+
+
+#change first rows for TS and PP for stablization
+
+cd /scratch/rice/w/wang2381/paper_conf/para/
+
+awk -F, '{if($5==0){$6=-65.231;$7=10.995;$8=-5.436;$9=-23.092;$10=-23.092;$11=-21.400;$12=-14.306;$13=-3.894;$14=1.225;$15=6.587;$16=10.802;$17=10.995;$18=7.101;$19=-3.733;$20=-13.017;$21=-22.497;}}1' OFS=, ts_na_26.txt > 11.txt
+
+awk -F, '{if($5==0){$6=953.417;$7=155.882;$8=79.451;$9=33.659;$10=33.659;$11=40.930;$12=40.689;$13=107.210;$14=117.863;$15=63.328;$16=155.882;$17=48.539;$18=99.739;$19=84.520;$20=116.062;$21=44.996;}}1' OFS=, pp_na_26.txt > 12.txt
+
+
+rm ts_na_26.txt
+mv 11.txt ts_na_26.txt
+
+rm pp_na_26.txt
+mv 12.txt pp_na_26.txt
+
+
+
+
+#delete all the output files
+
+for i in {1..21}
+do
+cd $i
+rm *_na_26sep.txt
+cd ..
+done
+
+
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/pp_na_26sep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*13149*(${i}-1))),$((115*13149+115*13149*(${i}-1))) p" pp_na_26.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*13149*($[i]-1))), $((39*13149+115*13149*($[i]-1))) p" pp_na_26.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done
+
+
+
+
+#******************************************************************
+
+
+
+
+
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/par_na_26sep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*13149*(${i}-1))),$((115*13149+115*13149*(${i}-1))) p" par_na_26.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*13149*($[i]-1))), $((39*13149+115*13149*($[i]-1))) p" par_na_26.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done
+
+
+
+
+
+#******************************************************************
+
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/ts_na_26sep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*13149*(${i}-1))),$((115*13149+115*13149*(${i}-1))) p" ts_na_26.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*13149*($[i]-1))), $((39*13149+115*13149*($[i]-1))) p" ts_na_26.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done
+
+
+#******************************************************************
+
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/vp_na_26sep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*13149*(${i}-1))),$((115*13149+115*13149*(${i}-1))) p" vp_na_26.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*13149*($[i]-1))), $((39*13149+115*13149*($[i]-1))) p" vp_na_26.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done
+
+
+
+
+
+#****************************************************************
+#bash ends

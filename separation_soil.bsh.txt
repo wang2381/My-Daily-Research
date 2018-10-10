@@ -1,0 +1,104 @@
+#separate soil texture files into 21 parts
+
+#!/bin/bash
+
+
+#******************************************************************
+#bash starts
+
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/soil_nasep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*(${i}-1))),$((115+115*(${i}-1))) p" soil_na.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*($[i]-1))), $((39*17149+115*($[i]-1))) p" soil_na.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done
+
+
+
+
+#******************************************************************
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/veg_na_3sep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*(${i}-1))),$((115+115*(${i}-1))) p" veg_na_3.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*($[i]-1))), $((39*17149+115*($[i]-1))) p" veg_na_3.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done
+
+
+
+#******************************************************************
+
+dirname="/scratch/rice/w/wang2381/paper_conf/para/"
+file="/elev_nasep.txt"
+for (( i = 1; i<=21; i++))
+
+do
+
+   echo "$i"
+
+   filename="$dirname$i$file"
+   if [ $i -lt 20 ]
+   then 
+          
+              sed -n "$((1+115*(${i}-1))),$((115+115*(${i}-1))) p" elev_na.txt > $filename
+              
+              
+	      
+ 
+           
+    else
+          
+              
+              sed -n "$((1+115*($[i]-1))), $((39*17149+115*($[i]-1))) p" elev_na.txt > $filename
+ 	      
+              
+	
+          
+    fi
+done

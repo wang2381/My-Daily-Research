@@ -1,0 +1,70 @@
+
+
+for i in {1..21};
+do 
+ 
+cp QTSP44A2.ECD QTLA44A2.ECD Qtst44a2.ecd Tsoil423.ecd Trotz423.ecd Tveg423_Caribou.ecd Tleaf423.ecd Tmcrv423.ecd Penmon423.ecd Caribou_up.dat Caribou_peat.dat Tcomm423.ecd co2_na.txt Tveg423_Caribou.ecd Tleaf423_Denbigh.ecd Denbigh_up.dat Denbigh_peat.dat QTST44A2.ECD Tveg423_spruce.ecd spruce_up.dat spruce_fen.dat Tveg423_South_Rhody.ecd South_Rhody_up.dat South_Rhody_peat.dat Caribou_region.go4 xtem423e $i
+
+done
+
+
+
+
+#rename the files with sequential number:for job
+
+for i in */
+do
+cd $i
+rm *.jb
+cd ..
+done
+
+
+for i in {1..21}
+do
+cp tem.jb $i
+done
+
+
+a=1
+for i in {1..21}
+do
+cd $i
+mv -- *.jb "$(printf "tem-%d.jb" $a)"
+cd ..
+let a=$a+1
+printf "$a\n"
+done
+
+
+
+
+
+
+
+
+
+#minus 1 if needed
+
+for i in {1..21}
+do
+cd $i
+awk -F, '{$5-=1;}1' OFS=, par_na_26.txt > 11.txt
+awk -F, '{$5-=1;}1' OFS=, pp_na_26.txt > 12.txt
+awk -F, '{$5-=1;}1' OFS=, ts_na_26.txt > 13.txt
+awk -F, '{$5-=1;}1' OFS=, vp_na_26.txt > 14.txt
+
+rm par_na_26.txt
+mv 11.txt par_na_26.txt
+
+rm pp_na_26.txt
+mv 12.txt pp_na_26.txt
+
+rm ts_na_26.txt
+mv 13.txt ts_na_26.txt
+
+rm vp_na_26.txt
+mv 14.txt vp_na_26.txt
+
+cd ..
+done
