@@ -1,0 +1,53 @@
+CMNT:             3
+COMMUNITY:  Moist_Tundra
+SITE:      Toolik_Lake_LTER_USA
+Lon:           -150.0
+Lat:             68.5
+Updated:        20011204   
+          
+           
+VEGCyica:      291.395       
+VEGCyicb:      633.453
+STRNyica:        5.84
+STRNyicb:       12.712
+SOLCyica:     4516.45
+SOLCyicb:    11859.753
+SOLNyica:      276.07
+SOLNyicb:      724.92
+AVLNyica:       -0.616
+AVLNyicb:        0.628
+STONyica:        0.586
+STONyicb:        1.298
+
+UNLEAF12:        0.00
+PRVLEAFMX:       1.00
+
+CMAXCUT:         0.55
+CMAX1A:        158.58
+CMAX1B:        960.99
+CMAX2A:        158.58
+CMAX2B:        441.99
+CFALL:           0.030333
+KRA:            -0.0005870
+KRB:            -3.9790000
+KDA:             0.0000963
+KDB:             0.01043
+LCCLNC:        150.00
+PROPFTOS:        0.2000
+           
+NMAXCUT:         0.55           
+NMAX1A:          4.698       
+NMAX1B:         36.727
+NMAX2A:          4.698
+NMAX2B:         36.727      
+NFALL:           0.004434          
+NUPA:            1.894    
+NUPB:           25.519        
+NLOSS:           0.0           
+NFIXPAR:         0.0           
+CNEVEN:         30.00           
+CNMIN:           0.00           
+VEGC2NA:         0.0           
+VEGC2NB:        50.00  
+C2NMIN:         50.00       
+CNSOIL:         16.36
